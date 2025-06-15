@@ -1,30 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="./favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link href="./_app/immutable/assets/2.Df9AwJ45.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.De3Ri-i7.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CZF7km1w.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/DWVjZWAt.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BsxHelei.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.C5eKmQIk.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CT8hGOx2.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/DR8O5QU1.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/ChmWRmCP.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.BSCqs03v.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CXOGrC68.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.BzUm1wSi.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BRnlpdn3.js">
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><!----><h2 class="text-xl font-bold mb-4">Arcaea PTT Play rating calculator !!</h2> <div class="multiselect   svelte-1taxil8 single" role="searchbox" tabindex="-1"><input value="[]" tabindex="-1" aria-hidden="true" aria-label="ignore this, used only to prevent form submission if select is required but empty" class="form-control svelte-1taxil8"/> <!--[!--><svg width="15px" style="min-width: 1em; padding: 0 1pt; cursor: pointer;" fill="currentColor" viewBox="0 0 16 16"><path d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708z"></path></svg><!--]--> <ul class="selected  svelte-1taxil8" aria-label="selected options"><!--[--><!--]--> <input class="svelte-1taxil8" value="" autocomplete="off" placeholder="type here to search songs !!" clearable="true" closeonselect="false"/> <!----></ul> <!--[!--><!--]--> <!--[!--><!--]--> <!--[--><ul class="options  svelte-1taxil8 hidden" role="listbox" aria-multiselectable="false" aria-expanded="false"><!--[--><!--]--> <!--[!--><!--]--></ul><!--]--></div><!----> <!--[!--><p class="mt-4 text-gray-500">Please select a song.</p><!--]--> <div class="mt-6 space-x-2 flex flex-col gap-2"><button class="px-3 py-1 bg-blue-500 text-white rounded">pst</button> <button class="px-3 py-1 bg-blue-500 text-white rounded">prs</button> <button class="px-3 py-1 bg-blue-500 text-white rounded">ftr</button> <button class="px-3 py-1 bg-blue-500 text-white rounded">etr</button></div> <h1 class="mt-4 text-2xl font-bold">0</h1> <h><p>8341464</p> <input type="range" id="PTTslider" min="8292683" max="10000000" step="4800" width="400" name="PTTslider" value="8341464"/><!----> <p>play rating: 0.000</p></h><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @font-face {
+        font-family: 'kazesawa';
+        src: url('/fonts/kazesawa.ttf') 
+      }
+
+      html, body {
+        font-family: 'kazesawa';
+      }
+    </style>
+    
+		<link href="./_app/immutable/assets/0.DrOzXSdx.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/2.dcDe-R5k.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.Y8IJ7oGZ.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/C8wTtVhJ.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/B8MAPRTz.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BSzfYo8B.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.LqqTrH5s.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/B0cjK51O.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/G6MPNSka.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DSixCZda.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.C6sYmGW2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CBvxUEsN.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.BUO83zUo.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DCje4GHp.js">
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents"><!--[--><!--[--><!----><!----><h2>arcaea ptt play rating calculator !!</h2> <div class="layout"><div class="select-box"><div class="multiselect   svelte-1taxil8 single" role="searchbox" tabindex="-1"><input value="[]" tabindex="-1" aria-hidden="true" aria-label="ignore this, used only to prevent form submission if select is required but empty" class="form-control svelte-1taxil8"/> <!--[!--><svg width="15px" style="min-width: 1em; padding: 0 1pt; cursor: pointer;" fill="currentColor" viewBox="0 0 16 16"><path d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708z"></path></svg><!--]--> <ul class="selected  svelte-1taxil8" aria-label="selected options"><!--[--><!--]--> <input class="svelte-1taxil8" value="" autocomplete="off" placeholder="type here to search songs !!" clearable="true" closeonselect="false" background="true"/> <!----></ul> <!--[!--><!--]--> <!--[!--><!--]--> <!--[--><ul class="options  svelte-1taxil8 hidden" role="listbox" aria-multiselectable="false" aria-expanded="false"><!--[--><!--]--> <!--[!--><!--]--></ul><!--]--></div><!----></div> <!--[!--><!--]--></div><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_11wuy9k = {
+					__sveltekit_37rynl = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/arcaea-play-rating-calc"
 					};
@@ -32,8 +43,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./_app/immutable/entry/start.De3Ri-i7.js"),
-						import("./_app/immutable/entry/app.C5eKmQIk.js")
+						import("./_app/immutable/entry/start.Y8IJ7oGZ.js"),
+						import("./_app/immutable/entry/app.LqqTrH5s.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
@@ -45,5 +56,5 @@
 				}
 			</script>
 		</div>
-	</body>
+  </body>
 </html>
