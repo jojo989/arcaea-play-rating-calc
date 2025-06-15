@@ -28,7 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install npm
-        uses: pnpm/action-setup@v2
+        uses: npm/action-setup@v2
         with:
           version: 8.16.0
       - name: Install dependencies
