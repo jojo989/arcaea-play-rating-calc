@@ -46,6 +46,8 @@
   const setChartFrom = (arr: number[]) => {
     if (arr.length) chartConst = arr[0];
   };
+
+  $: if (userScore >= 9996682) {userScore = 10000000 }
 </script>
 
 <h2>arcaea ptt play rating calculator !!</h2>
@@ -97,7 +99,7 @@
         size={400}
         bind:val={userScore}
       />
-      <p>play rating: {calculatePlayRating(chartConst, userScore).toPrecision(2)}</p>
+      <p>play rating: {calculatePlayRating(chartConst, userScore).toPrecision(3)}</p>
     </div>
   {/if}
 </div>
