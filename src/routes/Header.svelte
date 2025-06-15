@@ -8,7 +8,7 @@
 </h1>
 
 <h2>
-    {name.replace("h", "nigger")}
+    {name.replace("h", "faggot")}
 </h2>
 
 <p> 

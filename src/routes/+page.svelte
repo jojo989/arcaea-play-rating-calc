@@ -1,22 +1,13 @@
 <script lang="ts">
   import MultiSelect from 'svelte-multiselect';
   import Slider from './Slider.svelte';
-  import { calculatePlayRating } from './potential'
+  import { calculatePlayRating } from './potential';
 
   export let data: { songs: Song[] };
 
-
   let chartConst: number = 0;
-
-  $: if (userScore >= 10000000 - 4800 && userScore < 10000000) {
-      userScore = 10000000;
-    }
-
-  let userScore: number = 8341464
-
-  
+  let userScore: number = 8341464;
   let selected: { label: string; value: any; songData?: Song }[] = [];
-  
 
   type Song = {
     rowid?: number;
@@ -30,6 +21,7 @@
     bpm: string;
     [key: string]: any;
   };
+
   type Option = {
     label: string;
     value: any;
@@ -54,61 +46,100 @@
   const setChartFrom = (arr: number[]) => {
     if (arr.length) chartConst = arr[0];
   };
-
-
-
 </script>
 
-<h2 class="text-xl font-bold mb-4">Arcaea PTT Play rating calculator !!</h2>
+<h2>arcaea ptt play rating calculator !!</h2>
 
-<MultiSelect
-  bind:selected
-  options={options}
-  placeholder="type here to search songs !!"
-  clearable
-  closeOnSelect={false}
-  maxSelect={1}
-  key={opt => typeof opt === 'object' && 'value' in opt ? opt.value : opt}
-/>
+<div class="layout">
+  <div class="select-box">
+    <MultiSelect
+      bind:selected
+      options={options}
+      placeholder="type here to search songs !!"
+      clearable
+      closeOnSelect={false}
+      maxSelect={1}
+      key={opt => typeof opt === 'object' && 'value' in opt ? opt.value : opt}
+      background
+    />
+  </div>
 
-{#if selectedSongs.length > 0}
-  <h3 class="mt-6 text-lg font-semibold">song info:</h3>
-  <ul class="mt-2 space-y-2">
-    {#each selectedSongs as song (song.rowid)}
-      <li class="p-3 border rounded bg-gray-100">
-        <strong>{song.song}</strong><br />
-        artist:{song.artist}<br />
-        PAST: {song.pst}<br />
-        PRESENT: {song.prs}<br />
-        FUTURE: {song.ftr}<br />
-        ETERNAL: {song.etr}<br />
-      </li>
-    {/each}
-  </ul>
-{:else}
-  <p class="mt-4 text-gray-500">Please select a song.</p>
-{/if}
+  {#if selectedSongs.length > 0}
+    <div class="song-info">
+      <ul>
+        {#each selectedSongs as song (song.rowid)}
+          <li>
+            <strong>{song.song}</strong><br />
+            artist: {song.artist}<br />
+            PAST: {song.pst}<br />
+            PRESENT: {song.prs}<br />
+            FUTURE: {song.ftr}<br />
+            ETERNAL: {song.etr}
+          </li>
+        {/each}
+      </ul>
+    </div>
 
-<div class="mt-6 space-x-2 flex flex-col gap-2">
-  <button class="px-3 py-1 bg-blue-500 text-white rounded" on:click={() => setChartFrom(pstArr)}>pst</button>
-  <button class="px-3 py-1 bg-blue-500 text-white rounded" on:click={() => setChartFrom(prsArr)}>prs</button>
-  <button class="px-3 py-1 bg-blue-500 text-white rounded" on:click={() => setChartFrom(ftrArr)}>ftr</button>
-  <button class="px-3 py-1 bg-blue-500 text-white rounded" on:click={() => setChartFrom(etrArr)}>etr</button>
+    <div class="buttons">
+      <button on:click={() => setChartFrom(pstArr)}>pst</button>
+      <button on:click={() => setChartFrom(prsArr)}>prs</button>
+      <button on:click={() => setChartFrom(ftrArr)}>ftr</button>
+      <button on:click={() => setChartFrom(etrArr)}>etr</button>
+    </div>
+
+    <div class="slider-box">
+      <p>{userScore}</p>
+      <Slider
+        id="PTTslider"
+        min={8292683}
+        max={10000000}
+        step={4800}
+        size={400}
+        bind:val={userScore}
+      />
+      <p>play rating: {calculatePlayRating(chartConst, userScore).toPrecision(2)}</p>
+    </div>
+  {/if}
 </div>
 
-<h1 class="mt-4 text-2xl font-bold">{chartConst}</h1>
+<style>
+  :global(div.multiselect) {
+  --sms-bg: #000;
+  --sms-text-color: #fff;
+  --sms-placeholder-color: #bbb;
+  --sms-placeholder-opacity: 1;
+  --sms-options-bg: #000;
+  --sms-options-shadow: 0 0 14pt -8pt rgba(255, 255, 255, 0.1);
+  --sms-selected-text-color: #fff;
+  --sms-li-selected-color: #fff;
+  --sms-li-active-bg: rgba(255, 255, 255, 0.1);
+  font-family: 'kazesawa';
+}
 
-<h>
-  <p>{userScore}</p>
-  <Slider
-    id="PTTslider"
-    min={8292683}
-    max={10000000}
-    step={4800}
-    size={400}
-    bind:val={userScore}
-  />
 
-  <p>play rating: {calculatePlayRating(chartConst, userScore).toPrecision(4)}</p>
+:global(div.multiselect > input[autocomplete]) {
+  background-color: #000;
+  color: #fff;
+  font-family: 'kazesawa';
+  caret-color: #fff;
+  border: none;
+  outline: none;
+}
 
-</h>
+:global(div.multiselect > input[autocomplete]::placeholder) {
+  color: #bbb;
+  font-family: 'kazesawa';
+  opacity: 1;
+}
+
+:global(.buttons button) {
+  font-family: 'kazesawa';
+}
+
+:global(.multiselect input::placeholder) {
+  font-family: 'kazesawa';
+  color: white;
+}
+
+
+</style>
