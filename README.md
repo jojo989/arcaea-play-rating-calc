@@ -1,3 +1,6 @@
+# visit this website 
+https://jojo989.github.io/arcaea-play-rating-calc/
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
