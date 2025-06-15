@@ -32,13 +32,13 @@ jobs:
         with:
           version: 8.16.0
       - name: Install dependencies
-        run: pnpm i
+        run: npm i
       - name: Build website
         run: npm build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload entire repository
           path: "./build"
