@@ -11,7 +11,7 @@ const db = new Database(dbPath);
 
 export async function load() {
   try {
-    const songs = db.prepare('SELECT rowid, song, artist, pst, prs, ftr, etr, length, bpm FROM song_tb').all();
+    const songs = db.prepare('SELECT rowid, song, artist, pst, prs, ftr, etr, byd, length, bpm FROM song_tb').all();
     return { songs };
   } catch (error) {
     console.error('Database error:', error);

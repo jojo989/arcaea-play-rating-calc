@@ -17,6 +17,7 @@
     prs: number;
     ftr: number;
     etr: number;
+    byd: number;
     length: string;
     bpm: string;
     [key: string]: any;
@@ -42,6 +43,7 @@
   $: prsArr = selectedSongs.map(s => s.prs);
   $: ftrArr = selectedSongs.map(s => s.ftr);
   $: etrArr = selectedSongs.map(s => s.etr);
+  $: bydArr = selectedSongs.map(s => s.byd);
 
   const setChartFrom = (arr: number[]) => {
     if (arr.length) chartConst = arr[0];
@@ -51,6 +53,12 @@
 </script>
 
 <h2>arcaea ptt play rating calculator !!</h2>
+<h4 id="faggotThanks">
+  Special thanks to Agatha and 
+  <a href="https://arcaea.fandom.com/wiki/Arcaea_Wiki" target="_blank" rel="noopener noreferrer">
+    Arcaea wiki fandom
+  </a>
+</h4>
 
 <div class="layout">
   <div class="select-box">
@@ -76,7 +84,8 @@
             PAST: {song.pst}<br />
             PRESENT: {song.prs}<br />
             FUTURE: {song.ftr}<br />
-            ETERNAL: {song.etr}
+            ETERNAL: {song.etr} <br />
+            BEYOND: {song.byd} <br />
           </li>
         {/each}
       </ul>
@@ -87,6 +96,7 @@
       <button on:click={() => setChartFrom(prsArr)}>prs</button>
       <button on:click={() => setChartFrom(ftrArr)}>ftr</button>
       <button on:click={() => setChartFrom(etrArr)}>etr</button>
+      <button on:click={() => setChartFrom(bydArr)}>byd</button>
     </div>
 
     <div class="slider-box">
@@ -99,7 +109,7 @@
         size={400}
         bind:val={userScore}
       />
-      <p>play rating: {calculatePlayRating(chartConst, userScore).toPrecision(3)}</p>
+      <p>play rating: {calculatePlayRating(chartConst, userScore).toFixed(2)}</p>
     </div>
   {/if}
 </div>
